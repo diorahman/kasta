@@ -24,6 +24,11 @@ var config = {
 }
 ```
 
+```js
+var kasta = require ("kasta");
+console.log (kasta(config));
+```
+
 Transform it into 
 
 ```js
@@ -62,6 +67,10 @@ Transform it into
 Then we can check if someone with specific roles can access a defined level
 
 ```js
+
+var role = kasta(config).userRoles["admin"];
+var accessLevel = kasta(config).accessLevels["user"];
+
 var allowed = role.bitMask & accessLevel.bitMask;
 
 if (allowed) {
